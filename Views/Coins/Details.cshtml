@@ -1,0 +1,66 @@
+﻿@model Assignment_EAP_Coin.Models.Coin
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Coin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Market.MarketName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Market.MarketName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoinName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoinName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseAsset)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaseAsset)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuoteAsset)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuoteAsset)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volumn24h)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Volumn24h)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CoinId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

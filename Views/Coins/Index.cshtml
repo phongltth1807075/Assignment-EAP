@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Assignment_EAP_Coin.Models.Coin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Coins", FormMethod.Get))
+{
+<p>
+    Coin Code: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+    @*Market Name: @Html.DropDownList("MarketId", null, htmlAttributes: new { @class = "form-control" })*@
+    
+    <input type="submit" value="Search" />
+</p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Market.MarketName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoinName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseAsset)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuoteAsset)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volumn24h)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Market.MarketName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoinName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaseAsset)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteAsset)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volumn24h)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CoinId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CoinId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CoinId })
+            </td>
+        </tr>
+    }
+
+</table>
